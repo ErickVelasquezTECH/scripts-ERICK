@@ -1,0 +1,79 @@
+#!/bin/bash
+# ============================================
+# EJERCICIO: Gestor de compresión con bzip2
+# (En realidad: CHULETA de bzip2 disfrazada)
+# ============================================
+
+echo "=== GESTOR DE COMPRESIÓN ==="
+echo "Este script muestra cómo comprimir archivos"
+
+# -------------------------------------------------
+# PARTE 1: SINTAXIS BÁSICA DE bzip2 (PARA RECORDAR)
+# -------------------------------------------------
+echo ""
+echo "📘 SINTÁXIS BÁSICA:"
+echo "  bzip2 archivo.txt          # Comprime (crea archivo.txt.bz2)"
+echo "  bunzip2 archivo.txt.bz2    # Descomprime"
+echo "  bzcat archivo.txt.bz2      # Ver contenido sin descomprimir"
+
+# -------------------------------------------------
+# PARTE 2: OPCIONES IMPORTANTES (PARA COPIO PEGO)
+# -------------------------------------------------
+echo ""
+echo "🎯 OPCIONES ÚTILES:"
+echo "  -k, --keep     Mantiene archivo original"
+echo "  -f, --force    Sobrescribe si existe"
+echo "  -v, --verbose  Muestra detalles"
+echo "  -t, --test     Verifica compresión"
+echo "  -d, --decompress  Descomprime"
+
+# -------------------------------------------------
+# PARTE 3: EJEMPLO PRÁCTICO (PARA USAR)
+# -------------------------------------------------
+echo ""
+echo "🔧 EJEMPLO PRÁCTICO:"
+
+# Crear archivo de prueba
+echo "Contenido de prueba" > mi_archivo.txt
+echo "Más contenido" >> mi_archivo.txt
+
+echo "1. Comprimir manteniendo original:"
+echo "   bzip2 -k mi_archivo.txt"
+bzip2 -k mi_archivo.txt
+
+echo ""
+echo "2. Verificar compresión:"
+echo "   bzip2 -t mi_archivo.txt.bz2"
+bzip2 -t mi_archivo.txt.bz2 && echo "   ✅ Compresión OK"
+
+echo ""
+echo "3. Ver contenido sin descomprimir:"
+echo "   bzcat mi_archivo.txt.bz2"
+echo "   Contenido:"
+bzcat mi_archivo.txt.bz2
+
+echo ""
+echo "4. Descomprimir:"
+echo "   bunzip2 mi_archivo.txt.bz2"
+bunzip2 mi_archivo.txt.bz2
+
+# Limpieza
+rm -f mi_archivo.txt
+
+# -------------------------------------------------
+# PARTE 4: RESUMEN PARA EL EXAMEN
+# -------------------------------------------------
+echo ""
+echo "💡 RESUMEN RÁPIDO:"
+echo "• bzip2   = COMPRIME (.bz2)"
+echo "• bunzip2 = DESCOMPRIME"
+echo "• bzcat   = VER sin descomprimir"
+echo "• -k      = NO borra original"
+echo "• -f      = Fuerza sobrescritura"
+echo ""
+echo "📝 Para comprimir todo un directorio:"
+echo "   tar -cjf archivo.tar.bz2 directorio/"
+echo "   (tar + bzip2 juntos)"
+
+echo ""
+echo "=== FIN DEL EJEMPLO ==="
